@@ -4,8 +4,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-
+// Configure the HTTP request pipeline.//middleware componments
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseRouting();
 app.UseHttpsRedirection();
 
 //Routing
@@ -15,7 +17,7 @@ app.UseHttpsRedirection();
 //reading orders
 app.MapGet("/Orders", () =>
 {
-    return "Return all the orders available";
+    return "Return all the orders available in the store";
 
 });
 //reading or getting orders on thje basis of id
